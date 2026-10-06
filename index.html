@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#07080b">
+  <meta
+    name="description"
+    content="FearSteal Network — Lifesteal, Practice, BoxPvP & Economy."
+  >
+
+  <title>Home | FearSteal</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: #ffffff;
+      background: #07080b;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ================= BACKGROUND ================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(255, 55, 55, 0.14),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 10% 70%,
+          rgba(255, 120, 30, 0.06),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(180, 20, 40, 0.05),
+          transparent 28%
+        ),
+        #07080b;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.16;
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+      background-size: 48px 48px;
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
+    }
+
+    /* ================= NAVBAR ================= */
+
+    .nav {
+      width: min(1160px, calc(100% - 32px));
+      margin: auto;
+      padding: 22px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      position: relative;
+      z-index: 5;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ff4b3e,
+          #a90916
+        );
+
+      box-shadow:
+        0 8px 30px rgba(255, 43, 43, 0.22);
+
+      font-size: 17px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+
+      color: #a9abb3;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 9px;
+    }
+
+    .nav-btn {
+      padding: 10px 15px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+
+      background: rgba(255,255,255,0.035);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      transition: 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 690px;
+
+      width: min(1160px, calc(100% - 32px));
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 70px 0 110px;
+
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 520px;
+      height: 520px;
+
+      border-radius: 50%;
+
+      background: rgba(255,42,42,0.08);
+
+      filter: blur(90px);
+
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 12px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+
+      background: rgba(255,255,255,0.035);
+
+      color: #c3c5cb;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 0.04em;
+
+      animation: rise 0.8s ease both;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #45e88a;
+
+      box-shadow:
+        0 0 13px #45e88a;
+    }
+
+    h1 {
+      margin-top: 23px;
+
+      font-size: clamp(
+        62px,
+        11vw,
+        126px
+      );
+
+      line-height: 0.88;
+
+      letter-spacing: -0.075em;
+
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 10%,
+          #ffddd9 46%,
+          #ff3b30 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      text-shadow:
+        0 25px 80px rgba(255,50,40,0.12);
+
+      animation:
+        rise 0.9s 0.08s ease both;
+    }
+
+    .subtitle {
+      margin-top: 22px;
+
+      color: #b8bac2;
+
+      font-size: clamp(
+        13px,
+        2vw,
+        16px
+      );
+
+      font-weight: 600;
+
+      letter-spacing: 0.02em;
+
+      animation:
+        rise 0.9s 0.16s ease both;
+    }
+
+    .subtitle span {
+      color: #ffffff;
+    }
+
+    /* ================= SERVER IP ================= */
+
+    .ip-card {
+      margin-top: 34px;
+
+      width: min(520px, 100%);
+
+      display: flex;
+      align-items: center;
+
+      padding: 6px;
+
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 15px;
+
+      background: rgba(255,255,255,0.045);
+
+      box-shadow:
+        0 20px 80px rgba(0,0,0,0.3);
+
+      animation:
+        rise 0.9s 0.24s ease both;
+    }
+
+    .ip-text {
+      flex: 1;
+
+      text-align: left;
+
+      padding: 0 15px;
+
+      min-width: 0;
+    }
+
+    .ip-label {
+      display: block;
+
+      color: #70737c;
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.12em;
+
+      margin-bottom: 3px;
+    }
+
+    .ip {
+      font-size: 14px;
+      font-weight: 800;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+    }
+
+    .copy-btn,
+    .primary {
+      border: 0;
+
+      cursor: pointer;
+
+      color: #ffffff;
+
+      font: inherit;
+
+      font-weight: 800;
+
+      border-radius: 11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff5146,
+          #c71924
+        );
+
+      box-shadow:
+        0 9px 30px rgba(255,38,38,0.22);
+
+      transition:
+        transform 0.2s,
+        filter 0.2s;
+    }
+
+    .copy-btn {
+      padding: 13px 18px;
+
+      font-size: 12px;
+    }
+
+    .copy-btn:hover,
+    .primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      margin-top: 14px;
+
+      display: flex;
+
+      gap: 10px;
+
+      animation:
+        rise 0.9s 0.32s ease both;
+    }
+
+    .primary,
+    .secondary {
+      padding: 13px 20px;
+
+      font-size: 12px;
+
+      border-radius: 11px;
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,0.09);
+
+      background: rgba(255,255,255,0.04);
+
+      font-weight: 800;
+
+      transition: 0.2s;
+    }
+
+    .secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ================= FEATURES ================= */
+
+    section {
+      width: min(
+        1100px,
+        calc(100% - 32px)
+      );
+
+      margin: auto;
+    }
+
+    .features {
+      padding: 75px 0 110px;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: #ff5750;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.16em;
+
+      font-size: 10px;
+
+      font-weight: 900;
+    }
+
+    .section-title {
+      margin-top: 8px;
+
+      font-size: clamp(
+        27px,
+        4vw,
+        40px
+      );
+
+      letter-spacing: -0.05em;
+    }
+
+    .section-copy {
+      color: #858892;
+
+      font-size: 13px;
+
+      margin-top: 9px;
+    }
+
+    .grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 12px;
+    }
+
+    .card {
+      min-height: 170px;
+
+      padding: 22px;
+
+      border: 1px solid rgba(255,255,255,0.07);
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.045),
+          rgba(255,255,255,0.018)
+        );
+
+      transition:
+        transform 0.25s,
+        border-color 0.25s,
+        background 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(255,70,60,0.28);
+
+      background:
+        rgba(255,255,255,0.055);
+    }
+
+    .icon {
+      width: 39px;
+      height: 39px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 11px;
+
+      background:
+        rgba(255,57,49,0.1);
+
+      border:
+        1px solid rgba(255,57,49,0.12);
+
+      margin-bottom: 22px;
+
+      font-size: 17px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      color: #858892;
+
+      font-size: 11px;
+
+      line-height: 1.65;
+    }
+
+    /* ================= JOIN ================= */
+
+    .join {
+      margin-bottom: 80px;
+
+      padding: 48px;
+
+      border-radius: 23px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(255,50,40,0.13),
+          transparent 45%
+        ),
+        rgba(255,255,255,0.025);
+
+      text-align: center;
+    }
+
+    .join h2 {
+      font-size: clamp(
+        27px,
+        4vw,
+        42px
+      );
+
+      letter-spacing: -0.055em;
+    }
+
+    .join p {
+      color: #858892;
+
+      font-size: 13px;
+
+      margin: 12px auto 23px;
+
+      max-width: 520px;
+    }
+
+    .platforms {
+      color: #70737c;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      margin-top: 17px;
+
+      letter-spacing: 0.1em;
+
+      text-transform: uppercase;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      border-top:
+        1px solid rgba(255,255,255,0.06);
+
+      padding: 25px 16px;
+
+      color: #5f626a;
+
+      font-size: 10px;
+
+      text-align: center;
+    }
+
+    /* ================= TOAST ================= */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+      bottom: 25px;
+
+      transform:
+        translate(-50%, 20px);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      padding: 11px 15px;
+
+      border:
+        1px solid rgba(255,255,255,0.1);
+
+      border-radius: 10px;
+
+      background: #15171c;
+
+      color: #ffffff;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      transition: 0.25s ease;
+
+      z-index: 20;
+    }
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(-50%, 0);
+    }
+
+    /* ================= ANIMATION ================= */
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ================= TABLET ================= */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 520px) {
+
+      .nav {
+        width:
+          calc(100% - 22px);
+      }
+
+      .nav-actions
+      .nav-btn:first-child {
+        display: none;
+      }
+
+      .hero {
+        width:
+          calc(100% - 22px);
+
+        padding-top: 45px;
+      }
+
+      .ip-card {
+        flex-direction: column;
+
+        gap: 6px;
+      }
+
+      .ip-text {
+        width: 100%;
+
+        padding:
+          11px 12px 6px;
+
+        text-align: center;
+      }
+
+      .copy-btn {
+        width: 100%;
+      }
+
+      .cta {
+        width: 100%;
+      }
+
+      .cta > * {
+        flex: 1;
+
+        text-align: center;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        padding-top: 45px;
+      }
+
+      .join {
+        padding:
+          34px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="nav">
+
+    <a class="brand" href="#">
+      <span class="brand-mark">F</span>
+      <span>FEARSTEAL</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#join">Join</a>
+
+      <a
+        href="https://store.fearsteal.fun/"
+        target="_blank"
+        rel="noopener"
+      >
+        Store
+      </a>
+    </nav>
+
+    <div class="nav-actions">
+
+      <a
+        class="nav-btn"
+        href="https://discord.gg/pGM5x3gXpX"
+        target="_blank"
+        rel="noopener"
+      >
+        Discord
+      </a>
+
+      <a
+        class="nav-btn"
+        href="https://store.fearsteal.fun/"
+        target="_blank"
+        rel="noopener"
+      >
+        Store ↗
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        <span class="dot"></span>
+        FEARSTEAL NETWORK
+      </div>
+
+      <h1>FearSteal</h1>
+
+      <p class="subtitle">
+        <span>Lifesteal</span>
+        •
+        <span>Practice</span>
+        •
+        <span>BoxPvP</span>
+        •
+        <span>Economy</span>
+      </p>
+
+
+      <!-- SERVER IP -->
+
+      <div class="ip-card">
+
+        <div class="ip-text">
+
+          <span class="ip-label">
+            Server Address
+          </span>
+
+          <span class="ip">
+            play.fearsteal.fun
+          </span>
+
+        </div>
+
+        <button
+          class="copy-btn"
+          id="copyBtn"
+          onclick="copyIP()"
+        >
+          Copy IP
+        </button>
+
+      </div>
+
+
+      <!-- BUTTONS -->
+
+      <div class="cta">
+
+        <a
+          class="primary"
+          href="https://discord.gg/pGM5x3gXpX"
+          target="_blank"
+          rel="noopener"
+        >
+          Join Discord
+        </a>
+
+        <a
+          class="secondary"
+          href="https://store.fearsteal.fun/"
+          target="_blank"
+          rel="noopener"
+        >
+          Visit Store ↗
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- GAME MODES -->
+
+    <section
+      class="features"
+      id="features"
+    >
+
+      <div class="section-head">
+
+        <div class="section-kicker">
+          Game Modes
+        </div>
+
+        <h2 class="section-title">
+          Choose your way to play.
+        </h2>
+
+        <p class="section-copy">
+          Four unique experiences. One FearSteal network.
+        </p>
+
+      </div>
+
+
+      <div class="grid">
+
+        <article class="card">
+
+          <div class="icon">
+            ⚔
+          </div>
+
+          <h3>
+            Lifesteal
+          </h3>
+
+          <p>
+            Fight, survive and steal hearts.
+            Build your legacy and become
+            the strongest.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="icon">
+            🎯
+          </div>
+
+          <h3>
+            Practice
+          </h3>
+
+          <p>
+            Sharpen your PvP skills,
+            challenge other players and
+            master every fight.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="icon">
+            ▦
+          </div>
+
+          <h3>
+            BoxPvP
+          </h3>
+
+          <p>
+            Mine, fight, upgrade and dominate
+            the box. Climb your way to the top.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="icon">
+            ◆
+          </div>
+
+          <h3>
+            Economy
+          </h3>
+
+          <p>
+            Trade, earn and grow your wealth
+            through a competitive server economy.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- JOIN -->
+
+    <section
+      class="join"
+      id="join"
+    >
+
+      <div class="section-kicker">
+        Ready?
+      </div>
+
+      <h2>
+        Enter FearSteal.
+      </h2>
+
+      <p>
+        Join the network, choose your game mode
+        and make your name known.
+      </p>
+
+      <button
+        class="primary"
+        onclick="copyIP()"
+      >
+        Copy Server IP
+      </button>
+
+      <div class="platforms">
+        Java &amp; Bedrock • Port 19132
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    © 2026 FearSteal Network. All rights reserved.
+  </footer>
+
+
+  <!-- COPY NOTIFICATION -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+    Server IP copied!
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    const SERVER_IP =
+      "play.fearsteal.fun";
+
+
+    async function copyIP() {
+
+      try {
+
+        await navigator.clipboard
+          .writeText(SERVER_IP);
+
+      } catch (error) {
+
+        const area =
+          document.createElement("textarea");
+
+        area.value =
+          SERVER_IP;
+
+        document.body.appendChild(area);
+
+        area.select();
+
+        document.execCommand("copy");
+
+        area.remove();
+
+      }
+
+
+      const btn =
+        document.getElementById("copyBtn");
+
+      const toast =
+        document.getElementById("toast");
+
+
+      if (btn) {
+
+        const oldText =
+          btn.textContent;
+
+        btn.textContent =
+          "Copied ✓";
+
+        setTimeout(() => {
+
+          btn.textContent =
+            oldText;
+
+        }, 1600);
+
+      }
+
+
+      toast.classList.add("show");
+
+
+      setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 1800);
+
+    }
+
+  </script>
+
+</body>
+</html>
